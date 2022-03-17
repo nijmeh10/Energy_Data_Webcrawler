@@ -1,0 +1,7 @@
+selenium
+pandas
+lxml
+scrapy
+beautifulsoup4
+pymysql
+pdfminer
