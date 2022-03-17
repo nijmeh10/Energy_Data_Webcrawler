@@ -1,5 +1,6 @@
 from webcrawler import Crawler
 
+
 def main():
     """
     Initialise the webcrawler and start the process
