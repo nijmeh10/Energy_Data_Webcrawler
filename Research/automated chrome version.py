@@ -2,8 +2,8 @@ from selenium import webdriver
 import pandas as pd
 
 # Copy path to Chrome
-browser = webdriver.Chrome("D:/Ricarda/Dokumente/Studium/Hochschule Düsseldorf/4. Semester/"
-                           "Thesis/Code/Web_Crawler/chromedriver_win32/chromedriver.exe")
+browser = webdriver.Chrome("D:/Ricarda/Dokumente/Studium/Hochschule Düsseldorf/4. Semester/Thesis/Code/"
+                           "Energy_Data_Webcrawler/chromedriver_win32/chromedriver.exe")
 
 # Determine a website
 url = "https://www.w3schools.com/html/html_tables.asp"
