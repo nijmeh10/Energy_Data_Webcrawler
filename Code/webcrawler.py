@@ -209,6 +209,9 @@ class Crawler:
             writer = csv.DictWriter(csvfile, links = internal_urls)
             writer.writeheader()
             writer.writerow(internal_urls)
+            csvfile.export('..\\data\\links\\')
+            print('Your file just been created in the folder "recordings".')
+
 
 
 
