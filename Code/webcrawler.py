@@ -2,7 +2,22 @@ from bs4 import BeautifulSoup
 import requests
 import os
 import sys
+import requests
+from urllib.parse import urlparse, urljoin
+import colorama
 
+# init the colorama module
+colorama.init()
+GREEN = colorama.Fore.GREEN
+GRAY = colorama.Fore.LIGHTBLACK_EX
+RESET = colorama.Fore.RESET
+YELLOW = colorama.Fore.YELLOW
+
+# initialize the set of links (unique links)
+# Internal links are URLs that link to other pages of the same website.
+# External links are URLs that link to other websites.
+internal_urls = set()
+external_urls = set()
 
 class Content:
     """
@@ -28,15 +43,15 @@ class Content:
 class Website:
     """Contains information about website structure"""
 
-    def __init__(self, name, url, searchUrl, resultListing, resultUrl, absoluteUrl, titleTag, bodyTag):
-        self.name = name
-        self.url = url
-        self.searchUrl = searchUrl
-        self.resultListing = resultListing
-        self.resultUrl = resultUrl
-        self.absoluteUrl = absoluteUrl
-        self.titleTag = titleTag
-        self.bodyTag = bodyTag
+#    def __init__(self, name, url, searchUrl, resultListing, resultUrl, absoluteUrl, titleTag, bodyTag):
+#        self.name = name
+#        self.url = url
+#        self.searchUrl = searchUrl
+#        self.resultListing = resultListing
+#        self.resultUrl = resultUrl
+#        self.absoluteUrl = absoluteUrl
+#        self.titleTag = titleTag
+#        self.bodyTag = bodyTag
 
 
 class Crawler:
@@ -64,7 +79,11 @@ class Crawler:
         print('\t4. Exit\n')
         selection = input('Please type: 1, 2, 3, or 4 \n')
         if selection == '1':
-            pass
+            webpage = input('Which website do you want to extract your links from? ')
+            self.get_all_website_links(webpage)
+            print("[+] Total Internal links:", len(internal_urls))
+            print("[+] Total External links:", len(external_urls))
+            print("[+] Total URLs:", len(external_urls) + len(internal_urls))
         elif selection == '2':
             pass
             self.main_menu()
@@ -138,6 +157,55 @@ class Crawler:
             if title != '' and body != '':
                 content = Content(topic, title, body, url)
                 content.print()
+
+    def is_valid(self, url):
+        """
+        Checks whether `url` is a valid URL.
+        """
+        parsed = urlparse(url)
+        return bool(parsed.netloc) and bool(parsed.scheme)
+
+    def get_all_website_links(self, url):
+        """
+        Returns all URLs that is found on `url` in which it belongs to the same website
+        """
+        # all URLs of `url`
+        urls = set()
+        # domain name of the URL without the protocol
+        domain_name = urlparse(url).netloc
+        soup = BeautifulSoup(requests.get(url).content, "html.parser")
+
+        for a_tag in soup.findAll("a"):
+            href = a_tag.attrs.get("href")
+            if href == "" or href is None:
+                # href empty tag
+                continue
+
+            # join the URL if it's relative (not absolute link)
+            href = urljoin(url, href)
+
+            parsed_href = urlparse(href)
+            # remove URL GET parameters, URL fragments, etc.
+            href = parsed_href.scheme + "://" + parsed_href.netloc + parsed_href.path
+
+            if not self.is_valid(href):
+                # not a valid URL
+                continue
+            if href in internal_urls:
+                # already in the set
+                continue
+            if domain_name not in href:
+                # external link
+                if href not in external_urls:
+                    print(f"{GRAY}[!] External link: {href}{RESET}")
+                    external_urls.add(href)
+                continue
+            print(f"{GREEN}[*] Internal link: {href}{RESET}")
+            urls.add(href)
+            internal_urls.add(href)
+
+
+
 
 
 
