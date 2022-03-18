@@ -1,5 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
+import os
+import sys
 
 
 class Content:
@@ -38,6 +40,56 @@ class Website:
 
 
 class Crawler:
+
+    def main_menu(self):
+        """
+        Provides the webcrawler's main menu.
+        """
+        self.clear_screen()
+        print('\n'+'*' * 80)
+        print('Webcrawler')
+        print('*' * 80)
+        print('\nPlease select one of the following commands: ')
+        print('\t1. Extract links from a website')
+        print('\t2. Extract a table from a website')
+        print('\t3. Extract text from a website')
+        print('\t4. Exit')
+        selection = input('Please type: 1, 2, 3, or 4')
+        if selection == '1':
+            pass
+        elif selection == '2':
+            pass
+            self.main_menu()
+        elif selection == '3':
+            pass
+            self.main_menu()
+        elif selection == '4':
+            pass
+            self.exit()
+        else:
+            self.wrong_input()
+            self.main_menu()
+
+    def clear_screen(self):
+        """
+        Clears the screen if user goes back to menu.
+        """
+        # For mac and linux os.name is 'posix'.
+        if os.name == 'posix':
+            _ = os.system('clear')
+        else:
+            _ = os.system('cls')
+
+    def wrong_input(self, message=''):
+        print(message)
+        input('Invalid input. Please press enter to continue. ')
+
+    def exit(self):
+        """
+        Cleans up resources and exits the webcrawler.
+        """
+        print('\nExiting Webcrawler - good bye!')
+        sys.exit()
 
     def getPage(self, url):
         try:
