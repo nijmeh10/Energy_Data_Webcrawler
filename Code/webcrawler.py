@@ -40,6 +40,9 @@ class Website:
 
 
 class Crawler:
+    """
+    Crawler...
+    """
 
     def __init__(self):
         self.main_menu()
@@ -50,14 +53,16 @@ class Crawler:
         """
         self.clear_screen()
         print('\n'+'*' * 80)
-        print('Webcrawler')
+        headline = 'Webcrawler'
+        new_headline = headline.center(80)
+        print(new_headline)
         print('*' * 80)
-        print('\nPlease select one of the following commands: ')
+        print('\nPlease select one of the following commands: \n')
         print('\t1. Extract links from a website')
         print('\t2. Extract a table from a website')
         print('\t3. Extract text from a website')
-        print('\t4. Exit')
-        selection = input('Please type: 1, 2, 3, or 4 ')
+        print('\t4. Exit\n')
+        selection = input('Please type: 1, 2, 3, or 4 \n')
         if selection == '1':
             pass
         elif selection == '2':
@@ -135,25 +140,5 @@ class Crawler:
                 content.print()
 
 
-crawler = Crawler()
 
 
-
-siteData = [
-    ['O\'Reilly Media', 'http://oreilly.com', 'https://ssearch.oreilly.com/?q=',
-        'article.product-result', 'p.title a', True, 'h1', 'section#product-description'],
-    ['Reuters', 'http://reuters.com', 'http://www.reuters.com/search/news?blob=', 'div.search-result-content',
-        'h3.search-result-title a', False, 'h1', 'div.StandardArticleBody_body_1gnLA'],
-    ['Brookings', 'http://www.brookings.edu', 'https://www.brookings.edu/search/?s=',
-        'div.list-content article', 'h4.title a', True, 'h1', 'div.post-body']
-]
-sites = []
-for row in siteData:
-    sites.append(Website(row[0], row[1], row[2],
-                         row[3], row[4], row[5], row[6], row[7]))
-
-topics = ['python', 'data science']
-for topic in topics:
-    print('GETTING INFO ABOUT: ' + topic)
-    for targetSite in sites:
-        crawler.search(topic, targetSite)
