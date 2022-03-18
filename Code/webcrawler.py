@@ -41,6 +41,9 @@ class Website:
 
 class Crawler:
 
+    def __init__(self):
+        self.main_menu()
+
     def main_menu(self):
         """
         Provides the webcrawler's main menu.
@@ -54,7 +57,7 @@ class Crawler:
         print('\t2. Extract a table from a website')
         print('\t3. Extract text from a website')
         print('\t4. Exit')
-        selection = input('Please type: 1, 2, 3, or 4')
+        selection = input('Please type: 1, 2, 3, or 4 ')
         if selection == '1':
             pass
         elif selection == '2':
