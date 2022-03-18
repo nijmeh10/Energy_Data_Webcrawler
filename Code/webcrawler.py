@@ -204,13 +204,24 @@ class Crawler:
             urls.add(href)
             internal_urls.add(href)
 
-    def convert_to_csv(self):
-        with open('Links.csv', 'w') as csvfile:
-            writer = csv.DictWriter(csvfile, links = internal_urls)
-            writer.writeheader()
-            writer.writerow(internal_urls)
-            csvfile.export('..\\data\\links\\')
-            print('Your file just been created in the folder "recordings".')
+        selection = input('Would you like to save the links in a csv file? Type y for yes or n for no \n')
+        if selection == 'y':
+            with open('Links.csv', 'w') as csvfile:
+                writer = csv.DictWriter(csvfile, links=internal_urls)
+                writer.writeheader()
+                writer.writerow()
+                csvfile.export('..\\data\\links\\')
+                print('Your file just been created in the folder "links".')
+        elif selection == 'n':
+            print('Okay. Returning back to the main menu. ')
+            self.main_menu()
+        else:
+            self.wrong_input()
+            self.main_menu()
+
+
+
+
 
 
 
