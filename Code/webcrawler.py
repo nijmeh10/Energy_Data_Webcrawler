@@ -1,3 +1,5 @@
+import shutil
+
 from bs4 import BeautifulSoup
 import os
 import sys
@@ -5,6 +7,7 @@ import requests
 from urllib.parse import urlparse, urljoin
 import colorama
 import csv
+from datetime import datetime
 
 # init the colorama module
 colorama.init()
@@ -215,6 +218,10 @@ class Crawler:
                 writer.writerow('\n')
                 writer.writerow(['External links'])
                 writer.writerow(EL)
+            time = str(datetime.now().strftime('%Y%m%d-%H%M%S'))
+            new_filename = time
+            shutil.move(f'Links.csv', f'..\\Data\\links\\{new_filename}.csv')
+
         elif selection == 'no':
             print('Okay. Returning back to the main menu. ')
             print(internal_urls)
