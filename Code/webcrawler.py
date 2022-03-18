@@ -78,7 +78,7 @@ class Crawler:
         print('\t4. Exit\n')
         selection = input('Please type: 1, 2, 3, or 4 \n')
         if selection == '1':
-            webpage = input('From which website do you want to extract your links? ')
+            webpage = input('From which website do you want to extract your links? \n')
             self.get_all_website_links(webpage)
         elif selection == '2':
             pass
@@ -212,6 +212,9 @@ class Crawler:
                 writer = csv.writer(csvfile)
                 writer.writerow(['Internal links'])
                 writer.writerow(IL)
+                writer.writerow('\n')
+                writer.writerow(['External links'])
+                writer.writerow(EL)
         elif selection == 'n':
             print('Okay. Returning back to the main menu. ')
             print(internal_urls)
