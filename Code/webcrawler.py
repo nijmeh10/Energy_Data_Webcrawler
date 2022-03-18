@@ -1,17 +1,16 @@
 from bs4 import BeautifulSoup
-import requests
 import os
 import sys
 import requests
 from urllib.parse import urlparse, urljoin
 import colorama
+import csv
 
 # init the colorama module
 colorama.init()
 GREEN = colorama.Fore.GREEN
 GRAY = colorama.Fore.LIGHTBLACK_EX
 RESET = colorama.Fore.RESET
-YELLOW = colorama.Fore.YELLOW
 
 # initialize the set of links (unique links)
 # Internal links are URLs that link to other pages of the same website.
@@ -43,15 +42,15 @@ class Content:
 class Website:
     """Contains information about website structure"""
 
-#    def __init__(self, name, url, searchUrl, resultListing, resultUrl, absoluteUrl, titleTag, bodyTag):
-#        self.name = name
-#        self.url = url
-#        self.searchUrl = searchUrl
-#        self.resultListing = resultListing
-#        self.resultUrl = resultUrl
-#        self.absoluteUrl = absoluteUrl
-#        self.titleTag = titleTag
-#        self.bodyTag = bodyTag
+    def __init__(self, name, url, searchUrl, resultListing, resultUrl, absoluteUrl, titleTag, bodyTag):
+        self.name = name
+        self.url = url
+        self.searchUrl = searchUrl
+        self.resultListing = resultListing
+        self.resultUrl = resultUrl
+        self.absoluteUrl = absoluteUrl
+        self.titleTag = titleTag
+        self.bodyTag = bodyTag
 
 
 class Crawler:
@@ -79,7 +78,7 @@ class Crawler:
         print('\t4. Exit\n')
         selection = input('Please type: 1, 2, 3, or 4 \n')
         if selection == '1':
-            webpage = input('Which website do you want to extract your links from? ')
+            webpage = input('From which website do you want to extract your links? ')
             self.get_all_website_links(webpage)
             print("[+] Total Internal links:", len(internal_urls))
             print("[+] Total External links:", len(external_urls))
@@ -203,6 +202,9 @@ class Crawler:
             print(f"{GREEN}[*] Internal link: {href}{RESET}")
             urls.add(href)
             internal_urls.add(href)
+
+    def convert_to_csv(self):
+        pass
 
 
 

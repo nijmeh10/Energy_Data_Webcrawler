@@ -5,6 +5,6 @@ scrapy
 beautifulsoup4
 pymysql
 pdfminer
-requests
 sys
 os
+colorama
