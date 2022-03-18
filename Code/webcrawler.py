@@ -80,10 +80,6 @@ class Crawler:
         if selection == '1':
             webpage = input('From which website do you want to extract your links? ')
             self.get_all_website_links(webpage)
-            print("[+] Total Internal links:", len(internal_urls))
-            print("[+] Total External links:", len(external_urls))
-            print("[+] Total URLs:", len(external_urls) + len(internal_urls))
-            self.convert_to_csv()
         elif selection == '2':
             pass
             self.main_menu()
@@ -203,17 +199,22 @@ class Crawler:
             print(f"{GREEN}[*] Internal link: {href}{RESET}")
             urls.add(href)
             internal_urls.add(href)
+        print("[+] Total Internal links:", len(internal_urls))
+        print("[+] Total External links:", len(external_urls))
+        print("[+] Total URLs:", len(external_urls) + len(internal_urls))
+
+        IL = list(internal_urls)
+        EL = list(external_urls)
 
         selection = input('Would you like to save the links in a csv file? Type y for yes or n for no \n')
         if selection == 'y':
-            with open('Links.csv', 'w') as csvfile:
-                writer = csv.DictWriter(csvfile, links=internal_urls)
-                writer.writeheader()
-                writer.writerow()
-                csvfile.export('..\\data\\links\\')
-                print('Your file just been created in the folder "links".')
+            with open('Links.csv', 'w', newline='') as csvfile:
+                writer = csv.writer(csvfile)
+                writer.writerow(['Internal links'])
+                writer.writerow(IL)
         elif selection == 'n':
             print('Okay. Returning back to the main menu. ')
+            print(internal_urls)
             self.main_menu()
         else:
             self.wrong_input()
