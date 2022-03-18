@@ -83,6 +83,7 @@ class Crawler:
             print("[+] Total Internal links:", len(internal_urls))
             print("[+] Total External links:", len(external_urls))
             print("[+] Total URLs:", len(external_urls) + len(internal_urls))
+            self.convert_to_csv()
         elif selection == '2':
             pass
             self.main_menu()
@@ -204,7 +205,10 @@ class Crawler:
             internal_urls.add(href)
 
     def convert_to_csv(self):
-        pass
+        with open('Links.csv', 'w') as csvfile:
+            writer = csv.DictWriter(csvfile, links = internal_urls)
+            writer.writeheader()
+            writer.writerow(internal_urls)
 
 
 
