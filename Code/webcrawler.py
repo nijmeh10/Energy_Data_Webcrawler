@@ -206,8 +206,8 @@ class Crawler:
         IL = list(internal_urls)
         EL = list(external_urls)
 
-        selection = input('Would you like to save the links in a csv file? Type y for yes or n for no \n')
-        if selection == 'y':
+        selection = input('Would you like to save the links in a csv file? Please type "yes" or "no". \n')
+        if selection == 'yes':
             with open('Links.csv', 'w', newline='') as csvfile:
                 writer = csv.writer(csvfile)
                 writer.writerow(['Internal links'])
@@ -215,7 +215,7 @@ class Crawler:
                 writer.writerow('\n')
                 writer.writerow(['External links'])
                 writer.writerow(EL)
-        elif selection == 'n':
+        elif selection == 'no':
             print('Okay. Returning back to the main menu. ')
             print(internal_urls)
             self.main_menu()
