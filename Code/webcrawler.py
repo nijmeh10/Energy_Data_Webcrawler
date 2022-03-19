@@ -1,5 +1,4 @@
 import shutil
-
 from bs4 import BeautifulSoup
 import os
 import sys
@@ -166,7 +165,8 @@ class Crawler:
 
     def get_all_website_links(self, url):
         """
-        Returns all URLs that is found on `url` in which it belongs to the same website
+        Returns all URLs that is found on `url` in which it belongs to the same website.
+        Additionally enables the user to create a csv file containing the links.
         """
         # all URLs of `url`
         urls = set()
@@ -221,7 +221,7 @@ class Crawler:
             time = str(datetime.now().strftime('%Y%m%d-%H%M%S'))
             new_filename = time
             shutil.move(f'Links.csv', f'..\\Data\\links\\{new_filename}.csv')
-            print(f'Your file "{new_filename}" has been saved to the directory "Data". '
+            print(f'Your file "{new_filename}" has been saved to the directory "Data/links". '
                   f'\nReturning back to the main menu. \n')
             self.main_menu()
         elif selection == 'no':
