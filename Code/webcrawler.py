@@ -74,21 +74,32 @@ class Crawler:
         print(new_headline)
         print('*' * 80)
         print('\nPlease select one of the following commands: \n')
-        print('\t1. Extract links from a website')
-        print('\t2. Extract a table from a website')
-        print('\t3. Extract text from a website')
+        print('\t1. Test whether the website you want to crawl allows webcrawling')
+        print('\t2. Extract links from a website')
+        print('\t3. Extract a table from a website')
+        print('\t4. Extract text from a website')
         print('\t4. Exit\n')
         selection = input('Please type: 1, 2, 3, or 4 \n')
         if selection == '1':
+            url = input('Before starting to crawl website it is necessary to test whether the server allows us to '
+                        'collect data from their website. Which website would you like to test? Please type the url.\n')
+            requests.get(url)
+            page = str(requests.get(url))
+            if page == '<Response [200]>':
+                print('This is a safe website, you can start webcrawling now.')
+            else:
+                print('I am sorry, you are not allowed to crawl this website. Try another one.')
+            self.main_menu()
+        elif selection == '2':
             webpage = input('From which website do you want to extract your links? \n')
             self.get_all_website_links(webpage)
-        elif selection == '2':
-            pass
-            self.main_menu()
         elif selection == '3':
             pass
             self.main_menu()
         elif selection == '4':
+            pass
+            self.main_menu()
+        elif selection == '5':
             pass
             self.exit()
         else:
