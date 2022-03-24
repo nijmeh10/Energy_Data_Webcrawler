@@ -10,5 +10,8 @@
 In the requirements.txt file you will find all the libraries that I used for the project. The most important libraries are briefly described below:
 - **BeatifulSoup4:** 
 - **requests: asking permission from the hosting server if we want to fetch data from their website**
+  - If the output is <Response [200]> so that means the server allows us to collect data from their website. 
 - **pandas: creating a dataframe**
 - **lxml: changing the HTML format into a Python-friendly format**
+
+
