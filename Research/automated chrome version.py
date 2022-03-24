@@ -6,7 +6,7 @@ browser = webdriver.Chrome("D:/Ricarda/Dokumente/Studium/Hochschule Düsseldorf/
                            "Energy_Data_Webcrawler/chromedriver_win32/chromedriver.exe")
 
 # Determine a website
-url = "https://www.w3schools.com/html/html_tables.asp"
+url = "https://en.wikipedia.org/wiki/List_of_best-selling_books#More_than_100_million_copies"
 # Open the website in the automated chrome version
 browser.get(url)
 # Read the Text on the website
