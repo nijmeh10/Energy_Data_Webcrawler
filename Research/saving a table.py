@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import pandas as pd
 
-
+# Using this you can create tables from website information and converting this to csv
 
 # Define URL
 url = 'https://webscraper.io/test-sites/e-commerce/allinone/computers/laptops'
@@ -92,4 +92,5 @@ table = pd.DataFrame({'Product Name': product_name_list, 'Price': price_list, 'R
 pd.set_option('display.max_columns', None)
 print(table)
 table.to_csv('table.csv')
+table.to_excel('table.xlsx')
 
