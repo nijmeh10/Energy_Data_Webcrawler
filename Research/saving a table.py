@@ -1,5 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
+import pandas as pd
+
 
 
 # Define URL
@@ -51,3 +53,43 @@ price = soup.find_all('h4', class_ = 'pull-right price')
 reviews = soup.find_all('p', class_ = 'pull-right')
 # Filter by description
 description = soup.find_all('p', class_ ='description')
+
+#print(name)
+#print(price)
+#print(reviews)
+#print(description)
+
+#price1 = soup.find('h4', class_='pull-right price')
+#print(price1.text)
+
+# Create for loop to make string from find_all list
+product_name_list = []
+for i in name:
+    name = i.text
+    product_name_list.append(name)
+price_list = []
+
+for i in price:
+    price = i.text
+    price_list.append(price)
+review_list = []
+
+for i in reviews:
+    rev = i.text
+    review_list.append(rev)
+
+description_list = []
+for i in description:
+    desc = i.text
+    description_list.append(desc)
+
+# Create dataframe
+
+table = pd.DataFrame({'Product Name': product_name_list, 'Price': price_list, 'Reviews': review_list, 'Description':
+    description_list})
+
+#pd.set_option('display.max_rows', None)
+pd.set_option('display.max_columns', None)
+print(table)
+table.to_csv('table.csv')
+
