@@ -1,6 +1,10 @@
+import shutil
+
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
+from datetime import datetime
+
 
 
 # Create an URL object
@@ -15,7 +19,7 @@ soup = BeautifulSoup(page.text, 'lxml')
 # first we need to find the table location. We do this by inspecting the page.
 # Obtain information from tag <table>
 table = input('In order to extract the table from the website we first need to identify the table´s location. '
-              'In order to do so please type in the table´s class from the tag <table>.\n ')
+              'In order to do so please type in the table´s class from the tag <table>.\n')
 
 table1 = soup.find('table', class_=str(table))
 
@@ -36,4 +40,6 @@ for j in table1.find_all('tr')[1:]:
     length = len(mydata)
     mydata.loc[length] = row
 
-mydata.to_excel('test.xlsx')
+any_table_filename = str(datetime.now().strftime('%Y%m%d-%H%M%S'))
+mydata.to_excel('any_table.xlsx')
+#shutil.move()

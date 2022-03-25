@@ -242,6 +242,9 @@ class Crawler:
             self.wrong_input()
             self.main_menu()
 
+    def get_any_table(self, url):
+        pass
+
 
 
 
