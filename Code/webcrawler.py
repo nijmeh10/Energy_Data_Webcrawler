@@ -90,7 +90,7 @@ class Crawler:
             requests.get(url)
             page = str(requests.get(url))
             if page == '<Response [200]>':
-                print('This is a safe website, you can start webcrawling now.')
+                print('This is a safe website, you can start web crawling now.')
             else:
                 print('I am sorry, you are not allowed to crawl this website. Try another one.')
             self.main_menu()
@@ -142,7 +142,7 @@ class Crawler:
 
     def safeGet(self, pageObj, selector):
         """
-        Utilty function used to get a content string from a Beautiful Soup
+        Utility function used to get a content string from a Beautiful Soup
         object and a selector. Returns an empty string if no object
         is found for the given selector
         """
@@ -249,6 +249,9 @@ class Crawler:
             self.main_menu()
 
     def get_any_table(self, url):
+        """
+        Enables to download any table from any website and convert the information into an Excel-file
+        """
         # Create object page
         page = requests.get(url)
         # Change html to Python friendly format and obtain page's information
@@ -285,10 +288,13 @@ class Crawler:
               f'\nReturning back to the main menu. \n')
 
     def get_text(self, url):
+        """
+        Downloads the whole text from a website
+        """
         html = urlopen(url).read()
         soup = BeautifulSoup(html, features="html.parser")
 
-        # kill all script and style elements
+        # erase all script and style elements
         for script in soup(["script", "style"]):
             script.extract()
 
@@ -301,7 +307,6 @@ class Crawler:
         chunks = (phrase.strip() for line in lines for phrase in line.split("  "))
         # drop blank lines
         text = '\n'.join(chunk for chunk in chunks if chunk)
-
         print(text)
         print('\nReturning back to the main menu. \n')
 
