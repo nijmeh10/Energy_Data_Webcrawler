@@ -7,6 +7,10 @@ from urllib.parse import urlparse, urljoin
 import colorama
 import csv
 from datetime import datetime
+import requests
+import pandas as pd
+
+
 
 # init the colorama module
 colorama.init()
@@ -94,7 +98,8 @@ class Crawler:
             webpage = input('From which website do you want to extract your links? \n')
             self.get_all_website_links(webpage)
         elif selection == '3':
-            pass
+            url = input('From which website would you like to extract a table? Please type the url.\n')
+            self.get_any_table(url)
             self.main_menu()
         elif selection == '4':
             pass
@@ -243,7 +248,41 @@ class Crawler:
             self.main_menu()
 
     def get_any_table(self, url):
-        pass
+        # Create object page
+        page = requests.get(url)
+        # Change html to Python friendly format and obtain page's information
+        soup = BeautifulSoup(page.text, 'lxml')
+
+        # first we need to find the table location. We do this by inspecting the page and obtaining the information
+        # from tag <table>
+        table = input('In order to extract the table from the website we first need to identify the table´s location.\n'
+                      'In order to do so please type in the table´s class from the tag <table>.\n')
+
+        table1 = soup.find('table', class_=str(table))
+
+        # Inspecting the location of each column, this is in most cases the tag <th>
+        # If this is not <th> this needs to be adapted here
+        headers = []
+        for i in table1.find_all('th'):
+            title = i.text
+            headers.append(title)
+
+        # Create a dataframe
+        mydata = pd.DataFrame(columns=headers)
+        # Create a for loop to fill mydata
+        for j in table1.find_all('tr')[1:]:
+            row_data = j.find_all('td')
+            row = [i.text for i in row_data]
+            length = len(mydata)
+            mydata.loc[length] = row
+
+        mydata.to_excel('any_table.xlsx')
+        time = str(datetime.now().strftime('%Y%m%d-%H%M%S'))
+        new_filename = time
+        shutil.move(f'any_table.xlsx', f'..\\Data\\tables\\{new_filename}.xlsx')
+        print(f'\nYour file "{new_filename}" has been saved to the directory "Data/tables". '
+              f'\nReturning back to the main menu. \n')
+
 
 
 
