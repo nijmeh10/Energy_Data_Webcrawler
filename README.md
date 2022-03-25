@@ -14,4 +14,5 @@ In the requirements.txt file you will find all the libraries that I used for the
 - **pandas: creating a dataframe**
 - **lxml: changing the HTML format into a Python-friendly format**
 
-
+### Functions 🧰
+- **get_any_table**: here it is important to know the location of each part of the table. In some cases it might me necessary to adapt the code, e.g. when the column's tag is not <th>.
