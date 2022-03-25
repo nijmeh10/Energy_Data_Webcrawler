@@ -2,7 +2,7 @@ import shutil
 from bs4 import BeautifulSoup
 import os
 import sys
-import requests
+from urllib.request import urlopen
 from urllib.parse import urlparse, urljoin
 import colorama
 import csv
@@ -82,7 +82,7 @@ class Crawler:
         print('\t2. Extract links from a website')
         print('\t3. Extract a table from a website')
         print('\t4. Extract text from a website')
-        print('\t4. Exit\n')
+        print('\t5. Exit\n')
         selection = input('Please type: 1, 2, 3, 4 or 5 \n')
         if selection == '1':
             url = input('Before starting to crawl website it is necessary to test whether the server allows us to '
@@ -102,7 +102,8 @@ class Crawler:
             self.get_any_table(url)
             self.main_menu()
         elif selection == '4':
-            pass
+            url = input('From which website would you like to extract the text? Please type the url.\n')
+            self.get_text(url)
             self.main_menu()
         elif selection == '5':
             pass
@@ -282,6 +283,27 @@ class Crawler:
         shutil.move(f'any_table.xlsx', f'..\\Data\\tables\\{new_filename}.xlsx')
         print(f'\nYour file "{new_filename}" has been saved to the directory "Data/tables". '
               f'\nReturning back to the main menu. \n')
+
+    def get_text(self, url):
+        html = urlopen(url).read()
+        soup = BeautifulSoup(html, features="html.parser")
+
+        # kill all script and style elements
+        for script in soup(["script", "style"]):
+            script.extract()
+
+        # get text
+        text = soup.get_text()
+
+        # break into lines and remove leading and trailing space on each
+        lines = (line.strip() for line in text.splitlines())
+        # break multi-headlines into a line each
+        chunks = (phrase.strip() for line in lines for phrase in line.split("  "))
+        # drop blank lines
+        text = '\n'.join(chunk for chunk in chunks if chunk)
+
+        print(text)
+        print('\nReturning back to the main menu. \n')
 
 
 
