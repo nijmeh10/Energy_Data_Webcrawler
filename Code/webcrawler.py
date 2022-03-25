@@ -74,12 +74,12 @@ class Crawler:
         print(new_headline)
         print('*' * 80)
         print('\nPlease select one of the following commands: \n')
-        print('\t1. Test whether the website you want to crawl allows webcrawling')
+        print('\t1. Test whether the website you want to crawl allows web crawling')
         print('\t2. Extract links from a website')
         print('\t3. Extract a table from a website')
         print('\t4. Extract text from a website')
         print('\t4. Exit\n')
-        selection = input('Please type: 1, 2, 3, or 4 \n')
+        selection = input('Please type: 1, 2, 3, 4 or 5 \n')
         if selection == '1':
             url = input('Before starting to crawl website it is necessary to test whether the server allows us to '
                         'collect data from their website. Which website would you like to test? Please type the url.\n')
