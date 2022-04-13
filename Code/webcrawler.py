@@ -86,7 +86,7 @@ class Crawler:
         print('\t4. Extract text from a website')
         print('\t5. Extract images from a website')
         print('\t6. Exit\n')
-        selection = input('Please type: 1, 2, 3, 4,5 or 6 \n')
+        selection = input('Please type: 1, 2, 3, 4, 5 or 6 \n')
         if selection == '1':
             url = input('Before starting to crawl website it is necessary to test whether the server allows us to '
                         'collect data from their website. Which website would you like to test? Please type the url.\n')
