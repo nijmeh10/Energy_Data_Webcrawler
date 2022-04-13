@@ -54,7 +54,8 @@ def download(url, pathname):
     # get the file name
     filename = os.path.join(pathname, url.split("/")[-1])
     # progress bar, changing the unit to bytes instead of iteration (default by tqdm)
-    progress = tqdm(response.iter_content(1024), f"Downloading {filename}", total=file_size, unit="B", unit_scale=True, unit_divisor=1024)
+    progress = tqdm(response.iter_content(1024), f"Downloading {filename}", total=file_size, unit="B", unit_scale=True,
+                    unit_divisor=1024)
     with open(filename, "wb") as f:
         for data in progress.iterable:
             # write data read to the file

@@ -84,7 +84,7 @@ class Crawler:
         print('\t2. Extract links from a website')
         print('\t3. Extract a table from a website')
         print('\t4. Extract text from a website')
-        print('\t5. Extracting images from a website')
+        print('\t5. Extract images from a website')
         print('\t6. Exit\n')
         selection = input('Please type: 1, 2, 3, 4,5 or 6 \n')
         if selection == '1':
@@ -112,6 +112,7 @@ class Crawler:
             url_base = input("Please type url you want to extract the images from:\n")
             folder_name = input("Please define the name of the folder where the pictures will be saved:\n")
             self.main(url_base, folder_name)
+            self.main_menu()
         elif selection == '6':
             self.exit()
         else:
@@ -371,6 +372,10 @@ class Crawler:
         for img in imgs:
             # for each image, download it
             self.download(img, path)
+
+
+
+
 
 
 
