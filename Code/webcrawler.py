@@ -1,14 +1,16 @@
 import shutil
 from bs4 import BeautifulSoup
-import os
 import sys
 from urllib.request import urlopen
-from urllib.parse import urlparse, urljoin
 import colorama
 import csv
 from datetime import datetime
-import requests
 import pandas as pd
+import requests
+import os
+from tqdm import tqdm
+from bs4 import BeautifulSoup as bs
+from urllib.parse import urljoin, urlparse
 
 
 
@@ -82,8 +84,9 @@ class Crawler:
         print('\t2. Extract links from a website')
         print('\t3. Extract a table from a website')
         print('\t4. Extract text from a website')
-        print('\t5. Exit\n')
-        selection = input('Please type: 1, 2, 3, 4 or 5 \n')
+        print('\t5. Extracting images from a website')
+        print('\t6. Exit\n')
+        selection = input('Please type: 1, 2, 3, 4,5 or 6 \n')
         if selection == '1':
             url = input('Before starting to crawl website it is necessary to test whether the server allows us to '
                         'collect data from their website. Which website would you like to test? Please type the url.\n')
@@ -105,8 +108,11 @@ class Crawler:
             url = input('From which website would you like to extract the text? Please type the url.\n')
             self.get_text(url)
             self.main_menu()
-        elif selection == '5':
-            pass
+        elif    selection == '5':
+            url_base = input("Please type url you want to extract the images from:\n")
+            folder_name = input("Please define the name of the folder where the pictures will be saved:\n")
+            self.main(url_base, folder_name)
+        elif selection == '6':
             self.exit()
         else:
             self.wrong_input()
@@ -309,6 +315,64 @@ class Crawler:
         text = '\n'.join(chunk for chunk in chunks if chunk)
         print(text)
         print('\nReturning back to the main menu. \n')
+
+    def get_all_images(self, url):
+        """
+        Returns all image URLs on a single `url`
+        """
+        soup = bs(requests.get(url).content, "html.parser")
+
+        urls = []
+        for img in tqdm(soup.find_all("img"), "Extracting images"):
+            img_url = img.attrs.get("src")
+            if not img_url:
+                # if img does not contain src attribute, just skip
+                continue
+
+            # make the URL absolute by joining domain with the URL that is just extracted
+            img_url = urljoin(url, img_url)
+            try:
+                pos = img_url.index("?")
+                img_url = img_url[:pos]
+            except ValueError:
+                pass
+
+            # finally, if the url is valid
+            if self.is_valid(img_url):
+                urls.append(img_url)
+        return urls
+
+    def download(self, url, pathname):
+        """
+        Downloads a file given an URL and puts it in the folder `pathname`
+        """
+        # if path doesn't exist, make that path dir
+        if not os.path.isdir(pathname):
+            os.makedirs(pathname)
+        # download the body of response by chunk, not immediately
+        response = requests.get(url, stream=True)
+        # get the total file size
+        file_size = int(response.headers.get("Content-Length", 0))
+        # get the file name
+        filename = os.path.join(pathname, url.split("/")[-1])
+        # progress bar, changing the unit to bytes instead of iteration (default by tqdm)
+        progress = tqdm(response.iter_content(1024), f"Downloading {filename}", total=file_size, unit="B",
+                        unit_scale=True, unit_divisor=1024)
+        with open(filename, "wb") as f:
+            for data in progress.iterable:
+                # write data read to the file
+                f.write(data)
+                # update the progress bar manually
+                progress.update(len(data))
+
+    def main(self, url, path):
+        # get all images
+        imgs = self.get_all_images(url)
+        for img in imgs:
+            # for each image, download it
+            self.download(img, path)
+
+
 
 
 
