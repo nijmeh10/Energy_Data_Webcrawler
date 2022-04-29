@@ -16,5 +16,11 @@ In the requirements.txt file you will find all the libraries that I used for the
 - **pandas: creating a dataframe**
 - **lxml: changing the HTML format into a Python-friendly format**
 
+Installation of libraries
+Some libraries require installation via the command prompt and cannot be installed just by fulfilling the requirements in the requirements.txt file. The following steps show how to install such libraries.
+- **BeautifulSoup4:** 
+  - pip install beautifulsoup4
+
+
 ### Functions 🧰
 - **get_any_table**: here it is important to know the location of each part of the table. In some cases it might me necessary to adapt the code, e.g. when the column's tag is not <th>.
