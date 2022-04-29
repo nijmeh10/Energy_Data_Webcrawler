@@ -1,5 +1,6 @@
 # Web crawler
-Web crawlers are also called searchbots, spiders or robots. The term refers to a computer program that is able to automatically search the Internet for specific information and data. The data can then be evaluated, sorted according to specified criteria and stored. This web crawler is used to extract data and information related to energy. 
+Web crawlers are also called searchbots, spiders or robots. The term refers to a computer program that is able to automatically search the Internet for specific information and data. The data can then be evaluated, sorted according to specified criteria and stored. 
+This web crawler is used to extract data and information related to energy. 
 
 
 ## xx. Business understanding 
