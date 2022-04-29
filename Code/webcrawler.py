@@ -1,17 +1,15 @@
-import shutil
-from bs4 import BeautifulSoup
-import sys
-from urllib.request import urlopen
-import colorama
-import csv
-from datetime import datetime
-import pandas as pd
-import requests
 import os
+import csv
+import sys
+import shutil
+import colorama
+import requests
+import pandas as pd
 from tqdm import tqdm
+from datetime import datetime
+from urllib.request import urlopen
 from bs4 import BeautifulSoup as bs
 from urllib.parse import urljoin, urlparse
-
 
 
 # init the colorama module
@@ -25,6 +23,7 @@ RESET = colorama.Fore.RESET
 # External links are URLs that link to other websites.
 internal_urls = set()
 external_urls = set()
+
 
 class Content:
     """
@@ -108,7 +107,7 @@ class Crawler:
             url = input('From which website would you like to extract the text? Please type the url.\n')
             self.get_text(url)
             self.main_menu()
-        elif    selection == '5':
+        elif selection == '5':
             url_base = input("Please type url you want to extract the images from:\n")
             folder_name = input("Please define the name of the folder where the pictures will be saved:\n")
             self.main(url_base, folder_name)
@@ -145,7 +144,7 @@ class Crawler:
             req = requests.get(url)
         except requests.exceptions.RequestException:
             return None
-        return BeautifulSoup(req.text, 'html.parser')
+        return bs(req.text, 'html.parser')
 
     def safeGet(self, pageObj, selector):
         """
@@ -167,7 +166,7 @@ class Crawler:
         for result in searchResults:
             url = result.select(site.resultUrl)[0].attrs['href']
             # Check to see whether it's a relative or an absolute URL
-            if(site.absoluteUrl):
+            if site.absoluteUrl:
                 bs = self.getPage(url)
             else:
                 bs = self.getPage(site.url + url)
@@ -196,7 +195,7 @@ class Crawler:
         urls = set()
         # domain name of the URL without the protocol
         domain_name = urlparse(url).netloc
-        soup = BeautifulSoup(requests.get(url).content, "html.parser")
+        soup = bs(requests.get(url).content, "html.parser")
 
         for a_tag in soup.findAll("a"):
             href = a_tag.attrs.get("href")
@@ -262,7 +261,7 @@ class Crawler:
         # Create object page
         page = requests.get(url)
         # Change html to Python friendly format and obtain page's information
-        soup = BeautifulSoup(page.text, 'lxml')
+        soup = bs(page.text, 'lxml')
 
         # first we need to find the table location. We do this by inspecting the page and obtaining the information
         # from tag <table>
@@ -299,7 +298,7 @@ class Crawler:
         Downloads the whole text from a website
         """
         html = urlopen(url).read()
-        soup = BeautifulSoup(html, features="html.parser")
+        soup = bs(html, features="html.parser")
 
         # erase all script and style elements
         for script in soup(["script", "style"]):
@@ -372,22 +371,3 @@ class Crawler:
         for img in imgs:
             # for each image, download it
             self.download(img, path)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

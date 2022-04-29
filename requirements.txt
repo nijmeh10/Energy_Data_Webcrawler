@@ -1,7 +1,5 @@
-selenium
 pandas
 lxml
-scrapy
 beautifulsoup4
 pymysql
 pdfminer
@@ -9,3 +7,4 @@ sys
 os
 colorama
 requests
+tqdm
