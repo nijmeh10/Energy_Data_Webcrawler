@@ -19,11 +19,17 @@ In the requirements.txt file you will find all the libraries that I used for the
   - Pandas is used to create a data frame in the form of a table for downloaded data.
 - **lxml: changing the HTML format into a Python-friendly format**
   - The lxml library helps to process HTML in the Python programming language.
+- **urllib.request: handling URLs**
+  - It is used for retrieving URLs (Uniform Resource Locators). Using the urlopen function, it can retrieve URLs over a variety of different protocols.
+- **colorama: providing colored text output**
+  - With colorama, text on the console can be colored, which can increase the readability in some places.
 
-Installation of libraries
+####Installation of libraries####
 Some libraries require installation via the command prompt and cannot be installed just by fulfilling the requirements in the requirements.txt file. The following steps show how to install such libraries.
 - **BeautifulSoup4:** 
   - pip install beautifulsoup4
+- **urllib.request**
+  - pip install urllib
 
 
 ### Functions 🧰
