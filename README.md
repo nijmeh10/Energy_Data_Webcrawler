@@ -1,14 +1,15 @@
-# Webcrawler
+# Web crawler
+Web crawlers are also called searchbots, spiders or robots. The term refers to a computer program that is able to automatically search the Internet for specific information and data. The data can then be evaluated, sorted according to specified criteria and stored. This web crawler is used to extract data and information related to energy. 
 
-## Automated Version of Chrome
-1. Finding the current Chrome version I use by searching:https://chromedriver.storage.googleapis.com/LATEST_RELEASE
-2. Found out I use version 98.0.4758.80
-3. Download the automated version via https://chromedriver.chromium.org/downloads and selecting download for the Chrome version 98: https://chromedriver.storage.googleapis.com/index.html?path=98.0.4758.80/
 
+## xx. Business understanding 
+*This section focuses on understanding the business question and identifying the relevant objectives and requirements for implementing a webcrawler.*
+
+**In a nutshell: Implementation of a web crawler capable of extracting data from websites, especially energy data.**
 
 ### Libraries 📚
 In the requirements.txt file you will find all the libraries that I used for the project. The most important libraries are briefly described below:
-- **BeatifulSoup4:** 
+- **BeautifulSoup4:** 
 - **requests: asking permission from the hosting server if we want to fetch data from their website**
   - If the output is <Response [200]> so that means the server allows us to collect data from their website. 
 - **pandas: creating a dataframe**
