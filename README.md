@@ -37,7 +37,11 @@ Some libraries require installation via the command prompt and cannot be install
 ### Classes
 - **Class "Crawler": Allows the user to navigate through a main menu where he/she can choose one of the following options:**
   1. Test whether the website you want to crawl allows web crawling: Web scraping is not illegal per se, but the problem is when it is used without the permission of the website owner and in violation of the terms of use. Therefore, before crawling a website, it is important to obtain permission from the hosting server to retrieve data from its website. 
-  2. Extract links from a website: 
+  2. Extract links from a website: Allows the user to extract both external and internal links from a website. These are then displayed in an Excel file and saved under the Data/links folder.
+  3. Extract a table from a website: This function is suitable for downloading tables from websites. The data of the table is displayed in an Excel file, which is then saved under Data/tables.
+  4. Extract text from a website: Allows the user to download the text of a website.
+  5. Extract images from a website: Allows the user to download all images from a website.
+  6. Exit: stops the web crawler.
 - **Class "Content"**
 - **Class "Website"**
 
