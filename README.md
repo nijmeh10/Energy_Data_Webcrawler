@@ -27,8 +27,8 @@ In the requirements.txt file you will find all the libraries that I used for the
 #### Installation of libraries 
 Some libraries require installation via the command prompt and cannot be installed just by fulfilling the requirements in the requirements.txt file. The following steps show how to install such libraries.
 1. **BeautifulSoup4:** 
-  - Windows: open your command prompt and type the following command
-    - pip install beautifulsoup4
+    - Windows: open your command prompt and type the following command
+      -pip install beautifulsoup4
 2. **urllib.request**
   - Windows: open your command prompt and type the following command
     - pip install urllib
