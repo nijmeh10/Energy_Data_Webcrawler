@@ -24,7 +24,7 @@ In the requirements.txt file you will find all the libraries that I used for the
 - **colorama: providing colored text output**
   - With colorama, text on the console can be colored, which increases the readability.
 
-####Installation of libraries####
+##Installation of libraries##
 Some libraries require installation via the command prompt and cannot be installed just by fulfilling the requirements in the requirements.txt file. The following steps show how to install such libraries.
 1. **BeautifulSoup4:** 
   - Windows: open your command prompt and type the following command
@@ -34,5 +34,14 @@ Some libraries require installation via the command prompt and cannot be install
     - pip install urllib
 
 
+### Classes
+- **Class "Crawler": Allows the user to navigate through a main menu where he/she can choose one of the following options:**
+  1. Test whether the website you want to crawl allows web crawling: Web scraping is not illegal per se, but the problem is when it is used without the permission of the website owner and in violation of the terms of use. Therefore, before crawling a website, it is important to obtain permission from the hosting server to retrieve data from its website. 
+  2. Extract links from a website: 
+- **Class "Content"**
+- **Class "Website"**
+
+
 ### Functions 
-- **get_any_table**: here it is important to know the location of each part of the table. In some cases it might me necessary to adapt the code, e.g. when the column's tag is not <th>.
+- **get_any_table**: 
+  - here it is important to know the location of each part of the table. In some cases it might me necessary to adapt the code, e.g. when the column's tag is not <th>.
