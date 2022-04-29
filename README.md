@@ -8,7 +8,7 @@ This web crawler is used to extract data and information related to energy.
 
 **In a nutshell: Implementation of a web crawler capable of extracting data from websites, especially energy data.**
 
-### Libraries 📚
+### Libraries
 In the requirements.txt file you will find all the libraries that I used for the project. The most important libraries are briefly described below:
 - **BeautifulSoup4: extract website information** 
   - Beautiful Soup enables the user to extract information from web pages. It relies on an HTML or XML parser and provides Pythonic idioms for iterating, searching and modifying the parse tree.
@@ -22,15 +22,17 @@ In the requirements.txt file you will find all the libraries that I used for the
 - **urllib.request: handling URLs**
   - It is used for retrieving URLs (Uniform Resource Locators). Using the urlopen function, it can retrieve URLs over a variety of different protocols.
 - **colorama: providing colored text output**
-  - With colorama, text on the console can be colored, which can increase the readability in some places.
+  - With colorama, text on the console can be colored, which increases the readability.
 
 ####Installation of libraries####
 Some libraries require installation via the command prompt and cannot be installed just by fulfilling the requirements in the requirements.txt file. The following steps show how to install such libraries.
-- **BeautifulSoup4:** 
-  - pip install beautifulsoup4
-- **urllib.request**
-  - pip install urllib
+1. **BeautifulSoup4:** 
+  - Windows: open your command prompt and type the following command
+    - pip install beautifulsoup4
+2. **urllib.request**
+  - Windows: open your command prompt and type the following command
+    - pip install urllib
 
 
-### Functions 🧰
+### Functions 
 - **get_any_table**: here it is important to know the location of each part of the table. In some cases it might me necessary to adapt the code, e.g. when the column's tag is not <th>.
