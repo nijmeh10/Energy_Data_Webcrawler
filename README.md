@@ -24,7 +24,7 @@ In the requirements.txt file you will find all the libraries that I used for the
 - **colorama: providing colored text output**
   - With colorama, text on the console can be colored, which increases the readability.
 
-##Installation of libraries##
+## Installation of libraries ##
 Some libraries require installation via the command prompt and cannot be installed just by fulfilling the requirements in the requirements.txt file. The following steps show how to install such libraries.
 1. **BeautifulSoup4:** 
   - Windows: open your command prompt and type the following command
@@ -39,11 +39,11 @@ Some libraries require installation via the command prompt and cannot be install
   - "Test whether the website you want to crawl allows web crawling": Web scraping is not illegal per se, but the problem is when it is used without the permission of the website owner and in violation of the terms of use. Therefore, before crawling a website, it is important to obtain permission from the hosting server to retrieve data from its website. 
   - "Extract links from a website": Allows the user to extract both external and internal links from a website. These are then displayed in an Excel file and saved under the Data/links folder.
   - "Extract a table from a website": This function is suitable for downloading tables from websites. The data of the table is displayed in an Excel file, which is then saved under Data/tables.
-  - "Extract text from a website": Allows the user to download the text of a website.
-  - "Extract images from a website": Allows the user to download all images from a website.
+  - "Extract text from a website": Allows the user to download the text of a website. The text is displayed in the console.
+  - "Extract images from a website": Allows the user to download all images from a website. The user can choose the name of the folder where the images are stored. Afterwards this folder can be found under the folder Data
   - "Exit": stops the web crawler.
-- **Class "Content"**
-- **Class "Website"**
+- **Class "Content": Contains information about the content structure** 
+- **Class "Website": Contains information about website structure that is needed for web crawling**
 
 
 ### Functions 
