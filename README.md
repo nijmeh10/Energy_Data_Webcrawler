@@ -53,7 +53,7 @@ In the following, you find a description of which classes are implemented and wh
 - **Class "Website": Contains information about website structure that is needed for web crawling**
 
 
-### 3. Options
+### 3. Options 🖱️
   - **"Test whether the website you want to crawl allows web crawling"**: Web scraping is not illegal per se, but the problem is when it is used without the permission of the website owner and in violation of the terms of use. Therefore, before crawling a website, it is important to obtain permission from the hosting server to retrieve data from its website. If you are using this feature, after entering the URL, the web crawler will tell you either 'This is a safe website, you can start web crawling now.' or 'I am sorry, you are not allowed to crawl this website. Try another one.' if it is not allowed. 
 
   - **"Extract links from a website"**: Allows the user to extract both external and internal links from a website. The individual links are then displayed in the console. For better clarity, the internal links are colored green and external links in a light black. Afterwards the user has the option to save the links in a csv file. If the user chooses to do so, he or she will find this file in the folder Data/links with the current date and time as file name. 
