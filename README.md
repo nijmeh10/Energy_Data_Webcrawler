@@ -78,8 +78,3 @@ In the following, you find a description of which classes are implemented and wh
   
   - "Exit": stops the web crawler.
 
-
-### Functions 
-- **get_any_table**: 
-  - here it is important to know the location of each part of the table. In some cases it might me necessary to adapt the code, e.g. when the column's tag is not <th>.
-
