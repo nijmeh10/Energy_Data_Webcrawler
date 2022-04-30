@@ -111,6 +111,7 @@ class Crawler:
             url_base = input("Please type url you want to extract the images from:\n")
             folder_name = input("Please define the name of the folder where the pictures will be saved:\n")
             self.main(url_base, folder_name)
+            shutil.move(f'{folder_name}', f'..\Data\images\{folder_name}')
             self.main_menu()
         elif selection == '6':
             self.exit()
@@ -364,6 +365,7 @@ class Crawler:
                 f.write(data)
                 # update the progress bar manually
                 progress.update(len(data))
+
 
     def main(self, url, path):
         # get all images
