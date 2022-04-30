@@ -56,7 +56,11 @@ In the following, you find a description of which classes are implemented and wh
 ### 3. Options
   - "Test whether the website you want to crawl allows web crawling": Web scraping is not illegal per se, but the problem is when it is used without the permission of the website owner and in violation of the terms of use. Therefore, before crawling a website, it is important to obtain permission from the hosting server to retrieve data from its website. If you are using this feature, after entering the URL, the web crawler will tell you either 'This is a safe website, you can start web crawling now.' or 'I am sorry, you are not allowed to crawl this website. Try another one.' if it is not allowed. 
 
-
+  - "Extract text from a website": Allows the user to download the text of a website. The text is displayed in the console.
+  
+  - "Extract images from a website": Allows the user to download all images from a website. The user can choose the name of the folder where the images are stored. Afterwards this folder can be found under the folder Data.
+  
+  - "Exit": stops the web crawler.
   - "Extract links from a website": Allows the user to extract both external and internal links from a website. The individual links are then displayed in the console. For better clarity, the internal links are colored green and external links in a light black. Afterwards the user has the option to save the links in a csv file. If the user chooses to do so, he or she will find this file in the folder Data/links with the current date and time as file name. 
 
 
@@ -73,9 +77,5 @@ In the following, you find a description of which classes are implemented and wh
   ℹ️ In some cases it might me necessary to adapt the code, e.g. when the column's tag is not "th"
 
   
-- "Extract text from a website": Allows the user to download the text of a website. The text is displayed in the console.
-  
-- "Extract images from a website": Allows the user to download all images from a website. The user can choose the name of the folder where the images are stored. Afterwards this folder can be found under the folder Data.
-  
-- "Exit": stops the web crawler.
+
 
