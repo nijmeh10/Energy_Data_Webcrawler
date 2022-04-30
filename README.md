@@ -69,9 +69,11 @@ In the following, you find a description of which classes are implemented and wh
     1.  Please make a right click on the table of a website. Then select "Untersuchen" (view page source).
     
     ![Screenshot HTML Code](Documents/images/Screenshot_view_page_source.png)
+    Source: https://energiemarie.de/strompreis/europa
     
     2. To extract the table from the website, the location of the table must be determined, i.e. the class of the table from the tag <table>. The class is then passed to the web crawler.
   
     ![Screenshot HTML Code](Documents/images/Screenshot_HTML_Code.png)
+    Source: https://energiemarie.de/strompreis/europa
   
   ℹ️ In some cases it might me necessary to adapt the code, e.g. when the column's tag is not "th"
