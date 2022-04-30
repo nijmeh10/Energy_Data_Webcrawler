@@ -64,7 +64,7 @@ In the following, you find a description of which classes are implemented and wh
 
   - "Extract a table from a website": This function is suitable for downloading tables from websites. The data of the table is displayed in an Excel file, which is then saved under Data/tables. To use this function, it is important to know the HTML code of a website. Here is a brief instruction: 
 
-    1. ![Screenshot view page source](Documents/images/Screenshot HTML Code.jpg)
+![Screenshot view page source](Documents/images/Screenshot HTML Code.jpg)
   - "Extract text from a website": Allows the user to download the text of a website. The text is displayed in the console.
   - "Extract images from a website": Allows the user to download all images from a website. The user can choose the name of the folder where the images are stored. Afterwards this folder can be found under the folder Data.
   - "Exit": stops the web crawler.
