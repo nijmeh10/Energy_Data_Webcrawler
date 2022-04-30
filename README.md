@@ -48,7 +48,7 @@ In the following, you find a description of which classes are implemented and wh
   - "Extract text from a website"
   - "Extract images from a website"
   - "Exit"
-  For a better understanding of these options, please read Chapter 3.
+  ℹ️ For a better understanding of these options, please read Chapter 3.
  
  
 - **Class "Content": Contains information about the content structure** 
