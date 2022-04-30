@@ -8,7 +8,7 @@ This web crawler is used to extract data and information related to energy.
 
 **In a nutshell: Implementation of a web crawler capable of extracting data from websites, especially energy data.**
 
-### Libraries
+### Libraries 📚
 In the requirements.txt file you will find all the libraries that I used for the project. The most important libraries are briefly described below:
 - **BeautifulSoup4: extract website information** 
   - Beautiful Soup enables the user to extract information from web pages. It relies on an HTML or XML parser and provides Pythonic idioms for iterating, searching and modifying the parse tree.
@@ -34,7 +34,7 @@ Some libraries require installation via the command prompt and cannot be install
       -pip install urllib
 
 
-### Classes
+### Classes 📁
 - **Class "Crawler": Allows the user to navigate through a main menu where he/she can choose one of the following options:**
   - "Test whether the website you want to crawl allows web crawling": Web scraping is not illegal per se, but the problem is when it is used without the permission of the website owner and in violation of the terms of use. Therefore, before crawling a website, it is important to obtain permission from the hosting server to retrieve data from its website. 
   - "Extract links from a website": Allows the user to extract both external and internal links from a website. These are then displayed in an Excel file and saved under the Data/links folder.
