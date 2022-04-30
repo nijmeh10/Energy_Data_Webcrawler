@@ -69,7 +69,8 @@ In the following, you find a description of which classes are implemented and wh
     2. To extract the table from the website, the location of the table must be determined, i.e. the class of the table from the tag <table>. The class is then passed to the web crawler.
   
     ![Screenshot HTML Code](Documents/images/Screenshot_HTML_Code.png)
-
+  
+  ℹ️ In some cases it might me necessary to adapt the code, e.g. when the column's tag is not <th>
 
   - "Extract text from a website": Allows the user to download the text of a website. The text is displayed in the console.
   - "Extract images from a website": Allows the user to download all images from a website. The user can choose the name of the folder where the images are stored. Afterwards this folder can be found under the folder Data.
