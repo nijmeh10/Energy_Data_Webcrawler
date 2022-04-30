@@ -71,8 +71,8 @@ In the following, you find a description of which classes are implemented and wh
     ![Screenshot HTML Code](Documents/images/Screenshot_HTML_Code.png)
 
 
-  - "Extract text from a website": Allows the user to download the text of a website. The text is displayed in the console.
-  - "Extract images from a website": Allows the user to download all images from a website. The user can choose the name of the folder where the images are stored. Afterwards this folder can be found under the folder Data.
+- "Extract text from a website": Allows the user to download the text of a website. The text is displayed in the console.
+- "Extract images from a website": Allows the user to download all images from a website. The user can choose the name of the folder where the images are stored. Afterwards this folder can be found under the folder Data.
   - "Exit": stops the web crawler.
 
 ### Functions 
