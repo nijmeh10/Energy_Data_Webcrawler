@@ -25,11 +25,9 @@ In the requirements.txt file you will find all the libraries used for the projec
 #### Installation of libraries 
 Some libraries require installation via the command prompt and cannot be installed just by fulfilling the requirements in the requirements.txt file. The following steps show how to install such libraries.
 1. **BeautifulSoup4:** 
-    - open the command prompt and type the following command:
-      -pip install beautifulsoup4
+    - open the command prompt and type the following command:pip install beautifulsoup4
 2. **urllib.request**
-    - open the command prompt and type the following command:
-      -pip install urllib
+    - open the command prompt and type the following command: pip install urllib
 
 
 ### 2. Classes 📁
@@ -63,9 +61,12 @@ In the following, you find a description of which classes are implemented and wh
 
 
   - "Extract a table from a website": This function is suitable for downloading tables from websites. The data of the table is displayed in an Excel file, which is then saved under Data/tables. To use this function, it is important to know the HTML code of a website. Here is a brief instruction: 
-
+  
+    1.  Please make a right click on the table of a website. Then select "Untersuchen" (view page source).
     -![Screenshot HTML Code](Documents/images/Screenshot_view_page_source.png)
-    -![Screenshot HTML Code](Documents/images/Screenshot_HTML_Code.png)
+    
+    2. To extract the table from the website, the location of the table must be determined, i.e. the class of the table from the tag <table>. The class is then passed to the web crawler.
+    ![Screenshot HTML Code](Documents/images/Screenshot_HTML_Code.png)
 
 
 - "Extract text from a website": Allows the user to download the text of a website. The text is displayed in the console.
