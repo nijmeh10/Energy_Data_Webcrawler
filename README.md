@@ -66,7 +66,7 @@ In the following, you find a description of which classes are implemented and wh
 
 **Screenshot view page source**
 
-![Test](Energy_Data_Webcrawler/Documents/images/Screenshot_HTML_Code.jpg)
+![Test](Documents/images/Screenshot_HTML_Code.png)
 
 
 - "Extract text from a website": Allows the user to download the text of a website. The text is displayed in the console.
