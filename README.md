@@ -70,7 +70,7 @@ In the following, you find a description of which classes are implemented and wh
       ![Screenshot HTML Code](Documents/images/Screenshot_view_page_source.png)
       Source: https://energiemarie.de/strompreis/europa
     
-    2. To extract the table from the website, the location of the table must be determined, i.e. the class of the table from the tag <table>. The class is then passed to the web crawler.
+    2. To extract the table from the website, the location of the table must be determined, i.e. the class of the table from the tag "table". The class is then passed to the web crawler. In this case the class is "table".
   
     ![Screenshot HTML Code](Documents/images/Screenshot_HTML_Code.png)
     Source: https://energiemarie.de/strompreis/europa
