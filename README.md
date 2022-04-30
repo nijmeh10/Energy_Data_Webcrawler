@@ -71,6 +71,7 @@ In the following, you find a description of which classes are implemented and wh
     ![Screenshot HTML Code](Documents/images/Screenshot_HTML_Code.png)
   
   ℹ️ In some cases it might me necessary to adapt the code, e.g. when the column's tag is not "th"
+
   
 - "Extract text from a website": Allows the user to download the text of a website. The text is displayed in the console.
   
