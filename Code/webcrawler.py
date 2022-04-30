@@ -112,6 +112,7 @@ class Crawler:
             folder_name = input("Please define the name of the folder where the pictures will be saved:\n")
             self.main(url_base, folder_name)
             shutil.move(f'{folder_name}', f'..\Data\images\{folder_name}')
+            print('Your images have been saved to the directory "Data/images". ')
             self.main_menu()
         elif selection == '6':
             self.exit()
