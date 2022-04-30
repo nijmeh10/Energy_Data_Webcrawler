@@ -67,7 +67,6 @@ In the following, you find a description of which classes are implemented and wh
   - **"Extract a table from a website"**: This function is suitable for downloading tables from websites. The data of the table is displayed in an Excel file, which is then saved under Data/tables. To use this function, it is important to know the HTML code of a website. Here is a brief instruction: 
   
     1.  Please make a right click on the table of a website. Then select "Untersuchen" (view page source).
-    
       ![Screenshot HTML Code](Documents/images/Screenshot_view_page_source.png)
       Source: https://energiemarie.de/strompreis/europa
     
