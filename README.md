@@ -25,11 +25,9 @@ In the requirements.txt file you will find all the libraries used for the projec
 #### Installation of libraries 
 Some libraries require installation via the command prompt and cannot be installed just by fulfilling the requirements in the requirements.txt file. The following steps show how to install such libraries.
 1. **BeautifulSoup4:** 
-    - open the command prompt and type the following command:
-      -pip install beautifulsoup4
+    - open the command prompt and type the following command:pip install beautifulsoup4
 2. **urllib.request**
-    - open the command prompt and type the following command:
-      -pip install urllib
+    - open the command prompt and type the following command: pip install urllib
 
 
 ### 2. Classes 📁
@@ -55,23 +53,26 @@ In the following, you find a description of which classes are implemented and wh
 - **Class "Website": Contains information about website structure that is needed for web crawling**
 
 
-### 3. Options
-  - "Test whether the website you want to crawl allows web crawling": Web scraping is not illegal per se, but the problem is when it is used without the permission of the website owner and in violation of the terms of use. Therefore, before crawling a website, it is important to obtain permission from the hosting server to retrieve data from its website. If you are using this feature, after entering the URL, the web crawler will tell you either 'This is a safe website, you can start web crawling now.' or 'I am sorry, you are not allowed to crawl this website. Try another one.' if it is not allowed. 
+### 3. Options 🖱️
+  - **"Test whether the website you want to crawl allows web crawling"**: Web scraping is not illegal per se, but the problem is when it is used without the permission of the website owner and in violation of the terms of use. Therefore, before crawling a website, it is important to obtain permission from the hosting server to retrieve data from its website. If you are using this feature, after entering the URL, the web crawler will tell you either 'This is a safe website, you can start web crawling now.' or 'I am sorry, you are not allowed to crawl this website. Try another one.' if it is not allowed. 
 
+  - **"Extract links from a website"**: Allows the user to extract both external and internal links from a website. The individual links are then displayed in the console. For better clarity, the internal links are colored green and external links in a light black. Afterwards the user has the option to save the links in a csv file. If the user chooses to do so, he or she will find this file in the folder Data/links with the current date and time as file name. 
 
-  - "Extract links from a website": Allows the user to extract both external and internal links from a website. The individual links are then displayed in the console. For better clarity, the internal links are colored green and external links in a light black. Afterwards the user has the option to save the links in a csv file. If the user chooses to do so, he or she will find this file in the folder Data/links with the current date and time as file name. 
+  - **"Extract text from a website"**: Allows the user to download the text of a website. The text is displayed in the console.
+  
+  - **"Extract images from a website"**: Allows the user to download all images from a website. The user can choose the name of the folder where the images are stored. Afterwards this folder can be found under the folder Data/images.
+  
+  - **"Exit"**: stops the web crawler.
 
-
-  - "Extract a table from a website": This function is suitable for downloading tables from websites. The data of the table is displayed in an Excel file, which is then saved under Data/tables. To use this function, it is important to know the HTML code of a website. Here is a brief instruction: 
-
-    -![Screenshot HTML Code](Documents/images/Screenshot_view_page_source.png)
-    -![Screenshot HTML Code](Documents/images/Screenshot_HTML_Code.png)
-
-
-- "Extract text from a website": Allows the user to download the text of a website. The text is displayed in the console.
-  - "Extract images from a website": Allows the user to download all images from a website. The user can choose the name of the folder where the images are stored. Afterwards this folder can be found under the folder Data.
-  - "Exit": stops the web crawler.
-
-### Functions 
-- **get_any_table**: 
-  - here it is important to know the location of each part of the table. In some cases it might me necessary to adapt the code, e.g. when the column's tag is not <th>.
+  - **"Extract a table from a website"**: This function is suitable for downloading tables from websites. The data of the table is displayed in an Excel file, which is then saved under Data/tables. To use this function, it is important to know the HTML code of a website. Here is a brief instruction: 
+  
+    1.  Please make a right click on the table of a website. Then select "Untersuchen" (view page source).
+      ![Screenshot HTML Code](Documents/images/Screenshot_view_page_source.png)
+      Source: https://energiemarie.de/strompreis/europa
+    
+    2. To extract the table from the website, the location of the table must be determined, i.e. the class of the table from the tag "table". The class is then passed to the web crawler. In this case the class is "table".
+  
+      ![Screenshot HTML Code](Documents/images/Screenshot_HTML_Code.png)
+      Source: https://energiemarie.de/strompreis/europa
+  
+  ℹ️ In some cases it might me necessary to adapt the code, e.g. when the column's tag is not "th"
