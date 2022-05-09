@@ -25,7 +25,7 @@ In the requirements.txt file you will find all the libraries used for the projec
 #### Installation of libraries 
 Some libraries require installation via the command prompt and cannot be installed just by fulfilling the requirements in the requirements.txt file. The following steps show how to install such libraries.
 1. **BeautifulSoup4:** 
-    - open the command prompt and type the following command:pip install beautifulsoup4
+    - open the command prompt and type the following command: pip install beautifulsoup4
 2. **urllib.request**
     - open the command prompt and type the following command: pip install urllib
 
@@ -50,7 +50,7 @@ In the following, you find a description of which classes are implemented and wh
 
 
 
-- **Class "Website": Contains information about website structure that is needed for web crawling**
+- **Class "Website": Contains information about the website structure that is needed for web crawling**
 
 
 ### 3. Options 🖱️
