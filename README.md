@@ -15,7 +15,7 @@ In the requirements.txt file you will find all the libraries used for the projec
 - **pandas: creating a dataframe**
   - Pandas is used to create a data frame in the form of a table for downloaded data.
 - **lxml: changing the HTML format into a Python-friendly format**
-  - The lxml library helps to process HTML in the Python programming language.
+  - The lxml library helps to process HTML into the Python programming language.
 - **urllib.request: handling URLs**
   - It is used for retrieving URLs (Uniform Resource Locators). Using the urlopen function, it can retrieve URLs over a variety of different protocols.
 - **colorama: providing colored text output**
