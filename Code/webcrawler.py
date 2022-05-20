@@ -152,7 +152,7 @@ class Crawler:
         """
         Utility function used to get a content string from a Beautiful Soup
         object and a selector. Returns an empty string if no object
-        is found for the given selector
+        is found for the given selector.
         """
         childObj = pageObj.select(selector)
         if childObj is not None and len(childObj) > 0:
@@ -258,7 +258,7 @@ class Crawler:
 
     def get_any_table(self, url):
         """
-        Enables to download any table from any website and convert the information into an Excel-file
+        Enables to download any table from any website and convert the information into an Excel-file.
         """
         # Create object page
         page = requests.get(url)
@@ -297,7 +297,7 @@ class Crawler:
 
     def get_text(self, url):
         """
-        Downloads the whole text from a website
+        Downloads the whole text from a website.
         """
         html = urlopen(url).read()
         soup = bs(html, features="html.parser")
@@ -320,7 +320,7 @@ class Crawler:
 
     def get_all_images(self, url):
         """
-        Returns all image URLs on a single `url`
+        Returns all image URLs on a single `url`.
         """
         soup = bs(requests.get(url).content, "html.parser")
 
@@ -346,7 +346,7 @@ class Crawler:
 
     def download(self, url, pathname):
         """
-        Downloads a file given an URL and puts it in the folder `pathname`
+        Downloads a file given an URL and puts it in the folder `pathname`.
         """
         # if path doesn't exist, make that path dir
         if not os.path.isdir(pathname):
