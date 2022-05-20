@@ -367,7 +367,6 @@ class Crawler:
                 # update the progress bar manually
                 progress.update(len(data))
 
-
     def main(self, url, path):
         # get all images
         imgs = self.get_all_images(url)
