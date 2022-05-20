@@ -8,9 +8,3 @@ pymysql
 pdfminer
 requests
 beautifulsoup4
-
-
-
-
-
-
